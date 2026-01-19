@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 let time = "Daily";
 
 const filterBtn = document.querySelectorAll(".filter-btn");
@@ -45,7 +45,9 @@ async function getData() {
     .then((data) => {
       debug(data);
       showData(data);
-    });
+    }).error(error){
+      debug(error);
+    };
 }
 
 function showData(datas) {
