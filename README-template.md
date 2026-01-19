@@ -57,7 +57,7 @@ During this project, I focused on modernizing my workflow and solving complex lo
 
 ### Continued development
 
-- **Error Handling:** I want to dive deeper into `try...catch` blocks for more robust error handling in asynchronous calls.z
+- **Error Handling:** I want to dive deeper into `try...catch` blocks for more robust error handling in asynchronous calls.
 - **Performance Optimization:** I'm interested in learning more about how background processes and script execution order affect web performance.
 - **Accessibility:** I plan to continue practicing WCAG standards to make my future projects more inclusive.
 
