@@ -45,9 +45,9 @@ async function getData() {
     .then((data) => {
       debug(data);
       showData(data);
-    }).error(error){
+    }).error((error){
       debug(error);
-    };
+    });
 }
 
 function showData(datas) {
