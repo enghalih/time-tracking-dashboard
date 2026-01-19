@@ -1,0 +1,182 @@
+@use "sass:math";
+@import "compenent";
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+html {
+  min-height: 100vh;
+  font-size: 62.5%;
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  color: clr("white");
+  font-family: "Rubik", sans-serif;
+  background-color: clr("navy", 950);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.dashboard-container {
+  width: math.div($mobile-content-width, $mobile-screen-width) * 100%;
+  margin: auto;
+  max-width: 111rem;
+  display: grid;
+  gap: space(300);
+
+  @include dekstop{
+    grid-template-columns: 2fr 7fr;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: space(300);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.profile-card {
+  border-radius: 15px;
+  background-color: clr("navy", 900);
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    border-radius: 15px;
+    background-color: clr("purple", 600);
+    display: flex;
+    gap: space(300);
+    align-items: center;
+    padding: space(400);
+
+    @include dekstop{
+      flex-direction: column;
+      align-items: start;
+      gap: space(500);
+      flex: 1;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: space(100);
+  }
+
+  &__img {
+    width: 6.4rem;
+    aspect-ratio: 1/1;
+    border: 3px solid white;
+    border-radius: 50%;
+
+    @include dekstop{
+      width: 7.8rem;
+    }
+  }
+
+  &__name {
+    @include text-style("preset-4");
+
+    @include dekstop{
+      @include text-style("preset-2");
+    }
+  }
+  &__label {
+    @include text-style("preset-6");
+    color: clr("navy", 200);
+  }
+  &__list {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding-block: space(300);
+
+    @include dekstop {
+      flex-direction: column;
+      align-items: start;
+      gap: 2rem;
+      padding: space(400);
+    }
+  }
+  &__item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,204 @@
+:root {
+    /* Colors */
+    --blue: hsl(246, 80%, 60%);
+    --work-orange: hsl(15, 100%, 70%);
+    --play-blue: hsl(195, 74%, 62%);
+    --study-red: hsl(348, 100%, 68%);
+    --exercise-green: hsl(145, 58%, 55%);
+    --social-violet: hsl(264, 64%, 52%);
+    --self-care-yellow: hsl(43, 84%, 65%);
+
+    --dark-blue: hsl(226, 43%, 10%);
+    --dark-desat-blue: hsl(235, 46%, 20%);
+    --desat-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+
+    --font-size-body: 18px;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-bold: 500;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--dark-blue);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.dashboard-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1110px;
+    width: 100%;
+    grid-template-columns: 1fr; /* Mobile default */
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: var(--dark-desat-blue);
+    border-radius: 15px;
+    overflow: hidden;
+    grid-row: span 2;
+}
+
+.user-info {
+    background-color: var(--blue);
+    padding: 2rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-img {
+    width: 70px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.user-text p {
+    color: var(--pale-blue);
+    font-size: 0.9rem;
+}
+
+.user-text h1 {
+    font-weight: var(--font-weight-light);
+    font-size: 1.5rem;
+}
+
+.time-filter ul {
+    list-style: none;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: var(--desat-blue);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: white;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+.stat-card {
+    border-radius: 15px;
+    padding-top: 40px; /* Space for background icon */
+    background-repeat: no-repeat;
+    background-position: top -5px right 20px;
+}
+
+/* Card Themes */
+.work { background-color: var(--work-orange); background-image: url('./images/icon-work.svg'); }
+.play { background-color: var(--play-blue); background-image: url('./images/icon-play.svg'); }
+.study { background-color: var(--study-red); background-image: url('/images/icon-study.svg'); }
+.exercise { background-color: var(--exercise-green); background-image: url('./images/icon-exercise.svg'); }
+.social { background-color: var(--social-violet); background-image: url('./images/icon-social.svg'); }
+.self-care { background-color: var(--self-care-yellow); background-image: url('./images/icon-self-care.svg'); }
+
+.card-content {
+    background-color: var(--dark-desat-blue);
+    padding: 1.5rem;
+    border-radius: 15px;
+    height: 100%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.card-content:hover {
+    background-color: #34397B;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-time {
+    font-size: 2rem;
+    font-weight: var(--font-weight-light);
+}
+
+.previous-time {
+    font-size: 0.9rem;
+    color: var(--pale-blue);
+}
+
+/* Responsive Desktop */
+@media (min-width: 800px) {
+    .dashboard-container {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 5rem;
+    }
+
+    .user-text h1 {
+        font-size: 2.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .time-filter ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .card-body {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .current-time {
+        font-size: 3.5rem;
+    }
+}

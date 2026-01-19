@@ -1,0 +1,145 @@
+// Konfigurasi Dasar: 1rem = 10px
+// (Asumsi: Browser default 16px. 10/16 * 100% = 62.5%)
+
+// --- COLOR TOKENS ---
+// Diambil dari Colors.png
+
+$mobile-content-width: 327;
+$mobile-screen-width: 375;
+
+$colors: (
+  "white": #ffffff,
+  "black": #000000,
+  "navy": (
+    950: #0e1323,
+    // Background Utama
+    900: #1c204b,
+    // Card Background
+    800: #33397a,
+    // Card Hover
+    200: #bbc0ff, // Text / Pale Blue
+  ),
+  "purple": (
+    700: #7335d2,
+    // Profile Card / Social
+    600: #5747ea,
+    // Primary Blue/Purple
+    500: #7078c9, // Desaturated Blue
+  ),
+  "orange": #ff8b64,
+  "blue": #55c2e6,
+  "pink": #ff5e7d,
+  "green": #4bcf82,
+  "yellow": #f1c75b,
+  "grey": #d8d8d8,
+);
+
+// --- SPACING TOKENS ---
+// Diambil dari Spacing.png
+// Konversi: px / 10 = rem
+$spacing: (
+  0: 0,
+  100: 0.8rem,
+  // 8px
+  200: 1.6rem,
+  // 16px
+  300: 2.4rem,
+  // 24px
+  400: 3.2rem,
+  // 32px
+  500: 4rem, // 40px
+);
+
+// --- TYPOGRAPHY TOKENS ---
+// Diambil dari Typography.png
+// Format: (font-size, line-height, font-weight)
+$typography: (
+  "preset-1": (
+    5.6rem,
+    6.6rem,
+    300,
+  ),
+  // Rubik Light
+  "preset-2": (
+      4rem,
+      4.7rem,
+      300,
+    ),
+  "preset-3": (
+    3.2rem,
+    3.8rem,
+    300,
+  ),
+  "preset-4": (
+    2.4rem,
+    2.8rem,
+    300,
+  ),
+  "preset-5-medium": (
+    1.8rem,
+    2.1rem,
+    500,
+  ),
+  // Rubik Medium
+  "preset-5-regular": (
+      1.8rem,
+      2.1rem,
+      400,
+    ),
+  // Rubik Regular
+  "preset-6": (
+      1.5rem,
+      1.8rem,
+      400,
+    ),
+);
+
+// MIXINS
+@function clr($keys...) {
+  $value: $colors;
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+  @return $value;
+}
+
+@function space($key) {
+  @return map-get($spacing, $key);
+}
+
+@mixin text-style($preset) {
+  $style: map-get($typography, $preset);
+  font-size: nth($style, 1);
+  line-height: nth($style, 2);
+  font-weight: nth($style, 3);
+}
+
+@mixin theme-card($color, $location) {
+  background: clr($color...) url("../images/" + $location) no-repeat 80% top;
+}
+
+@mixin tablet() {
+  @media (min-width: 48rem) {
+    @content;
+  }
+}
+
+@mixin dekstop() {
+  @media (min-width: 90rem) {
+    @content;
+  }
+}
+
+@mixin filterData($data, $daily, $monthly, $weekly) {
+  .stat-card__content[data-time="#{$data}"] {
+    .stat-card__body--daily {
+      display: $daily;
+    }
+    .stat-card__body--monthly {
+      display: $monthly;
+    }
+    .stat-card__body--weekly {
+      display: $weekly;
+    }
+  }
+}

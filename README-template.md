@@ -16,8 +16,6 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -26,87 +24,54 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Switch between viewing Daily, Weekly, and Monthly stats
+- Switch between viewing Daily, Weekly, and Monthly stats dynamically using external data
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./result.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github](https://github.com/enghalih/time-tracking-dashboard)
+- Live Site URL: [Website](https://enghalih.github.io/time-tracking-dashboard)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- SCSS (Modern Sass architecture with `@use` and Mixins)
+- CSS Grid and Flexbox
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Vanilla JavaScript (ES6+)
+- **Fetch API** for asynchronous data handling
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+During this project, I focused on modernizing my workflow and solving complex logic issues regarding data structures. Key takeaways include:
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+- **Sass Module System:** I transitioned from using `@import` to the modern `@use` rule. I learned how to manage styles using **Namespacing** and **Interpolation** to keep the code scalable and avoid global scope conflicts.
+- **Asynchronous Data Handling:** I practiced using the **Fetch API** with `.then()` syntax to load local JSON data. This was a great exercise in understanding how to handle Promises and JSON parsing.
+- **Dynamic Object Access:** I solved logic errors related to nested data structures. I learned the critical difference between accessing Array indices and Object keys, specifically when using a variable to call a key dynamically (Bracket Notation).
+- **ARIA Best Practices:** I implemented `aria-current="page"` to improve accessibility, ensuring that users with assistive technologies can identify which timeframe is currently active.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Error Handling:** I want to dive deeper into `try...catch` blocks for more robust error handling in asynchronous calls.
+- **Performance Optimization:** I'm interested in learning more about how background processes and script execution order affect web performance.
+- **Accessibility:** I plan to continue practicing WCAG standards to make my future projects more inclusive.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [MDN Web Docs - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - This helped me understand how to properly fetch and consume JSON data.
+- [Sass Documentation](https://sass-lang.com/documentation/) - A great resource for learning the syntax of `@use` and variable interpolation.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@enghalih](https://www.frontendmentor.io/profile/enghalih)
+- Github - [@enghalih](https://github.com/enghalih)
+- Linkedin - [@enghalih | Wenning Ghalih](https://www.linkedin.com/in/enghalih/)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Special thanks to my AI thought partner for assisting with the debugging of my JSON data structure and clarifying the transition to modern SCSS modules.

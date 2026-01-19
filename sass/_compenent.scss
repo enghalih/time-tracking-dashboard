@@ -1,0 +1,105 @@
+@import "abstract";
+
+.filter-btn {
+  background-color: clr("navy", 900);
+  border: none;
+  @include text-style("preset-5-regular");
+  color: clr("purple", 500);
+
+  &--active {
+    color: clr("white");
+  }
+}
+
+@include filterData("Daily", flex, none, none);
+@include filterData("Weekly", none, flex, none);
+@include filterData("Monthly", none, none, flex);
+
+.stat-card {
+  padding-block-start: 3.8rem;
+  border-radius: 15px;
+  height: fit-content;
+
+  @include tablet {
+    padding-block-start: 3.3rem;
+  }
+
+  @include dekstop {
+    padding-block-start: 4.5rem;
+  }
+
+  &__content {
+    background-color: clr("navy", 900);
+    padding: space(300);
+    border-radius: 15px;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: space(200);
+    }
+
+    @include dekstop {
+      padding: space(400);
+      gap: space(300);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    @include text-style("preset-5-medium");
+  }
+
+  &__menu-btn {
+    background-color: inherit;
+    border: none;
+  }
+
+  &__time {
+    @include text-style("preset-3");
+
+    @include tablet {
+      @include text-style("preset-1");
+    }
+  }
+
+  &__previous {
+    @include text-style("preset-6");
+    color: clr("navy", 200);
+  }
+
+  // modifier
+
+  &--work {
+    @include theme-card("orange", "icon-work.svg");
+  }
+  &--play {
+    @include theme-card("blue", "icon-play.svg");
+  }
+  &--self-care {
+    @include theme-card("yellow", "icon-self-care.svg");
+  }
+  &--study {
+    @include theme-card("pink", "icon-study.svg");
+  }
+  &--exercise {
+    @include theme-card("green", "icon-exercise.svg");
+  }
+  &--social {
+    @include theme-card("purple" 700, "icon-social.svg");
+  }
+}
