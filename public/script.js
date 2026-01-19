@@ -36,7 +36,7 @@ if (filterBtn) {
 }
 
 async function getData() {
-  fetch("data.json")
+  fetch("https://enghalih.github.io/time-tracking-dashboard/data.json")
     .then((res) => {
       if (!res.ok) return debug("can't get API");
 
