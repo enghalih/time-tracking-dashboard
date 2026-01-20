@@ -7,12 +7,12 @@ let data;
 
 debug(filterBtn);
 if (filterBtn) {
-  filterBtn.forEach((btn, index) => {
+  filterBtn.forEach((btn) => {
     if (btn.textContent === time) {
       setActiveTime(btn);
     }
     btn.addEventListener("click", (event) => {
-      e = event.target;
+      const e = event.target;
       time = e.innerHTML;
       filterBtn.forEach((btnclosed) => {
         setInactiveTime(btnclosed);
@@ -36,7 +36,7 @@ if (filterBtn) {
 }
 
 async function getData() {
-  fetch("../data.json")
+  fetch("./data.json")
     .then((res) => {
       if (!res.ok) return debug("can't get API");
 
@@ -56,7 +56,7 @@ function showData(datas) {
     timeframe = data.timeframes;
     show.push(`
       <article class="stat-card stat-card--${data.title.toLowerCase().replace(" ", "-")}">
-            <div class="stat-card__content" data-time="Daily">
+            <div class="stat-card__content" data-time="${time}">
               <header class="stat-card__header">
                 <h2 class="stat-card__title">${data.title}</h2>
                 <button
@@ -76,7 +76,7 @@ function showData(datas) {
               </div>
               <div class="stat-card__body stat-card__body--monthly">
                 <p class="stat-card__time">${timeframe.monthly.current}hrs</p>
-                <p class="stat-card__previous">Last Mounthly - ${timeframe.monthly.previous}hrs</p>
+                <p class="stat-card__previous">Last Monthly - ${timeframe.monthly.previous}hrs</p>
               </div>
             </div>
           </article>
